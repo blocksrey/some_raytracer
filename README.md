@@ -1,2 +1,2 @@
-# raytrace-c
-This is cool.
+# ray-trace-c
+I'm bored.

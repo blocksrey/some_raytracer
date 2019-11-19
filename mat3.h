@@ -14,7 +14,7 @@ typedef struct {
 
 mat3 mat3new(float xx, float yx, float zx, float xy, float yy, float zy, float xz, float yz, float zz) {
     mat3 m;
-
+    
     m.xx = xx;
     m.xy = xy;
     m.xz = xz;
@@ -52,6 +52,38 @@ float mat3det(mat3 m) {
     float zz = m.zz;
 
     return zx*(xy*yz - xz*yy) + zy*(xz*yx - xx*yz) + zz*(xx*yy - xy*yx);
+}
+
+mat3 mat3numadd(mat3 a, float b) {
+    a.xx += b;
+    a.xy += b;
+    a.xz += b;
+
+    a.yx += b;
+    a.yy += b;
+    a.yz += b;
+
+    a.zx += b;
+    a.zy += b;
+    a.zz += b;
+
+    return a;
+}
+
+mat3 mat3numsub(mat3 a, float b) {
+    a.xx -= b;
+    a.xy -= b;
+    a.xz -= b;
+
+    a.yx -= b;
+    a.yy -= b;
+    a.yz -= b;
+
+    a.zx -= b;
+    a.zy -= b;
+    a.zz -= b;
+
+    return a;
 }
 
 mat3 mat3nummul(mat3 a, float b) {
@@ -109,7 +141,6 @@ vec3 mat3vec3mul(mat3 a, vec3 b) {
 
     return vec3new(x*xx + y*yx + z*zx, x*xy + y*yy + z*zy, x*xz + y*yz + z*zz);
 }
-
 
 mat3 mat3mat3mul(mat3 a, mat3 b) {
     float axx = a.xx;

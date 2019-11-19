@@ -13,7 +13,6 @@ hit hitnew(int s, vec3 p, vec3 n) {
 }
 
 vec3 raypointplane(vec3 p, vec3 d, vec3 v, vec3 n) {
-    //p + d*dot(v - p, n)/dot(d, n);
     return vec3vec3add(p, vec3nummul(d, vec3dot(vec3vec3sub(v, p), n)/vec3dot(d, n)));
 }
 

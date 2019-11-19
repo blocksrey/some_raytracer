@@ -24,10 +24,10 @@ int main() {
     vec3 worldlightcolor = vec3new(1, 1, 1);
     vec3 cameraposition = vec3new(0, 0, 0);
     mat3 cameraorientation = mat3mat3mul(mat3mat3mul(euleranglesx(-0.1), euleranglesy(-0.2)), euleranglesz(0.1));
-    vec2 viewsize = vec2new(320, 240);
-    int colordepth = 16;
+    vec2 viewsize = vec2new(1920, 1080);
+    int colordepth = 255;
     //
-
+    
     //store information
     int numspheres = 3;
     sphere spheres[numspheres];
@@ -56,7 +56,7 @@ int main() {
     for (int y = 0; y < viewsize.y; ++y) {
         for (int x = 0; x < viewsize.x; ++x) {
             //get world space direction of pixel
-            vec3 castdirection = vec3unit(mat3vec3mul(cameraorientation, vec3new((randrange(-1, 1) + 2*x - viewsize.x)/viewsize.y, (randrange(-1, 1) + viewsize.y - 2*y)/viewsize.y, 0.5)));
+            vec3 castdirection = vec3unit(mat3vec3mul(cameraorientation, vec3new((2*x - viewsize.x)/viewsize.y, (viewsize.y - 2*y)/viewsize.y, 0.5)));
             //calculate color
             vec3 color = trace(cameraposition, castdirection);
             //write pixel color

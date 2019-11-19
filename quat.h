@@ -7,12 +7,10 @@ typedef struct {
 
 quat quatnew(float w, float x, float y, float z) {
     quat q;
-
     q.w = w;
     q.x = x;
     q.y = y;
     q.z = z;
-
     return q;
 }
 
