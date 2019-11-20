@@ -60,13 +60,13 @@ int main() {
     vec3 spherecolors[] = {
         vec3new(1, 0, 0),
         vec3new(0, 1, 0),
-        vec3new(0.5, 1, 1)
+        vec3new(0, 0, 1)
     };
 
     float spherereflects[] = {
         0.5,
         0.5,
-        0
+        0.5
     };
 
     vec3 fogcolor = vec3new(0.4, 0.6, 0.8);
