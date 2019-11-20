@@ -23,7 +23,12 @@ hit raypointsphere(ray r, sphere s) {
         float z = sqrt(s.r*s.r - xy*xy);
         vec3 p = vec3vec3sub(pi, vec3nummul(r.d, z));
         vec3 n = vec3unit(vec3vec3sub(p, s.p));
-        return hitnew(1, p, n);
+        if (vec3dot(vec3vec3sub(p, r.p), r.d) >= 0) {
+            return hitnew(1, p, n);
+        }
+        else {
+            return hitnew(0, vec3new(0, 0, 0), vec3new(0, 0, 0));
+        }
     }
     else {
         return hitnew(0, vec3new(0, 0, 0), vec3new(0, 0, 0));
